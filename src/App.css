@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+*::before,
+*::after,
+*{
+  box-sizing: border-box;
+}
+:root{
+  --main-white: #FFFFFF;
+  --main-blue: #1C2046;
+  --text-blue: #213366;
+  --bg-dark: #F7F8FB;
+}
+.container{
+  max-width: calc(1920px - 70px);
+  padding-left: 35px;
+  padding-right: 35px;
+  margin: 0 auto;
+}
