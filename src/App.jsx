@@ -1,11 +1,35 @@
-import "./App.css"
-import Layout from "./layout"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+
+import Layout from "./layout";
+import Dashboard from "./pages/Dashboard";
+import Funnels from "./pages/Funnels"
+import Integration from "./pages/Integration"
+import Records from "./pages/Records"
+import Reports from "./pages/Reports"
+import Company from "./pages/Company"
+import Settings from "./pages/Settings"
+import Tariff from "./pages/Tariff"
+
 const App = () => {
   return (
-    <Layout>
-      <h1>Xurshid</h1>
-    </Layout>
-  )
-}
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="company" element={<Company />} />
+            <Route path="funnels" element={<Funnels />} />
+            <Route path="records" element={<Records />} />
+            <Route path="reports" element={<Reports />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="tariff" element={<Tariff />} />
+            <Route path="integration" element={<Integration />} />
+          </Route>
+        </Routes>
+      </Router>
+    </>
+  );
+};
 
-export default App
+export default App;

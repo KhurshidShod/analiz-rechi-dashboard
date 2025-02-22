@@ -10,12 +10,12 @@
     height: calc(100% - 75px);
     overflow: auto;
     transition: 0.1s linear all;
-    padding: 1.5rem;
+    padding: 20px 30px;
     @media (max-width: 1200px) {
-      width: calc(100% - 80px);
+      width: calc(100% - 65px);
     }
     &.collapsed {
-      width: calc(100% - 80px);
+      width: calc(100% - 65px);
     }
   }
 }

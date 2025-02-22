@@ -6,13 +6,13 @@ import Content from "../components/Content";
 const Layout = ({children}) => {
   const [collapsed, setCollapsed] = useState(false)
   return (
-    <>
+    <div>
       <Header toggleSidebar={() => setCollapsed(!collapsed)} />
       <Sidebar collapsed={collapsed} />
       <Content collapsed={collapsed}>
         {children}
       </Content>
-    </>
+    </div>
   );
 };
 

@@ -8,14 +8,16 @@ import IntegrationLogo from "../../assets/icons/integration.svg";
 import TabsLogo from "../../assets/icons/tabs.svg";
 import SettingsLogo from "../../assets/icons/settings.svg";
 import LogoutLogo from "../../assets/icons/logout.svg";
+import { Link } from "react-router-dom";
 const Sidebar = ({ collapsed }) => {
   const sliderRef = useRef();
 
   const slideFunction = (e) => {
-    console.log(sliderRef.current.offsetTop)
-    console.log(e.currentTarget.getBoundingClientRect().top)
+    console.log(sliderRef.current.offsetTop);
+    console.log(e.currentTarget.getBoundingClientRect().top);
     if (
-      sliderRef.current.offsetTop > e.currentTarget.getBoundingClientRect().top - 40
+      sliderRef.current.offsetTop >
+      e.currentTarget.getBoundingClientRect().top - 40
     ) {
       const top = e.currentTarget.offsetTop;
       sliderRef.current.style.top = `${top}px`;
@@ -27,7 +29,7 @@ const Sidebar = ({ collapsed }) => {
       }, 200);
     } else {
       sliderRef.current.style.bottom = `${
-        window.innerHeight - e.currentTarget.getBoundingClientRect().top - 40
+        window.innerHeight - e.currentTarget.getBoundingClientRect().top - 60
       }px`;
       const top = e.currentTarget.offsetTop;
       setTimeout(() => {
@@ -40,50 +42,66 @@ const Sidebar = ({ collapsed }) => {
       <ul>
         <div ref={sliderRef} className={styles.slider}></div>
         <li onClick={(e) => slideFunction(e)}>
-          <span>
-            <img src={HomeLogo} alt="" />
-          </span>
-          <p>Дашборд</p>
+          <Link to="/dashboard">
+            <span>
+              <img src={HomeLogo} alt="" />
+            </span>
+            <p>Дашборд</p>
+          </Link>
         </li>
         <li onClick={(e) => slideFunction(e)}>
-          <span>
-            <img src={TeamLogo} alt="" />
-          </span>
-          <p>Компания</p>
+          <Link to="/company">
+            <span>
+              <img src={TeamLogo} alt="" />
+            </span>
+            <p>Компания</p>
+          </Link>
         </li>
         <li onClick={(e) => slideFunction(e)}>
-          <span>
-            <img src={RecordsLogo} alt="" />
-          </span>
-          <p>Записи</p>
+          <Link to="/records">
+            <span>
+              <img src={RecordsLogo} alt="" />
+            </span>
+            <p>Записи</p>
+          </Link>
         </li>
         <li onClick={(e) => slideFunction(e)}>
-          <span>
-            <img src={OtchyotLogo} alt="" />
-          </span>
-          <p>Отчёты</p>
+          <Link to="/reports">
+            <span>
+              <img src={OtchyotLogo} alt="" />
+            </span>
+            <p>Отчёты</p>
+          </Link>
         </li>
         <li onClick={(e) => slideFunction(e)}>
-          <span>
-            <img src={IntegrationLogo} alt="" />
-          </span>
-          <p>Интеграции</p>
+          <Link to="/integration">
+            <span>
+              <img src={IntegrationLogo} alt="" />
+            </span>
+            <p>Интеграции</p>
+          </Link>
         </li>
         <li onClick={(e) => slideFunction(e)}>
-          <span>
-            <img src={TabsLogo} alt="" />
-          </span>
-          <p>Воронки</p>
+          <Link to="/funnels">
+            <span>
+              <img src={TabsLogo} alt="" />
+            </span>
+            <p>Воронки</p>
+          </Link>
         </li>
         <hr style={{ backgroundColor: "white", height: "1px", width: "80%" }} />
         <li onClick={(e) => slideFunction(e)}>
-          <span>
-            <img src={SettingsLogo} alt="" />
-          </span>
-          <p>Настройки аккаунта</p>
+          <Link to="/settings">
+            <span>
+              <img src={SettingsLogo} alt="" />
+            </span>
+            <p>Настройки аккаунта</p>
+          </Link>
         </li>
         <li onClick={(e) => slideFunction(e)}>
-          <p>Tариф</p>
+          <Link to="/tariff">
+            <p>Tариф</p>
+          </Link>
         </li>
         <li onClick={(e) => slideFunction(e)}>
           <span>

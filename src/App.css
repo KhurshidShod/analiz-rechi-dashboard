@@ -9,11 +9,21 @@
 *{
   box-sizing: border-box;
 }
+.ant-picker{
+  span{
+      >svg{
+          >path{
+              fill: var(--text-blue);
+          }
+      }
+  }
+}
 :root{
   --main-white: #FFFFFF;
   --main-blue: #1C2046;
   --text-blue: #213366;
   --bg-dark: #F7F8FB;
+  --border-color: #E0E0F4;
 }
 .container{
   max-width: calc(1920px - 70px);

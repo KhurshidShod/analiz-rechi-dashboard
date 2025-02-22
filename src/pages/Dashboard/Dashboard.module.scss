@@ -1,0 +1,78 @@
+.dashboard {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  font-family: "SF Pro" !important;
+  gap: 17px;
+  h1 {
+    font-size: 40px;
+    font-weight: 500;
+  }
+  &_tabs {
+    li {
+      float: left;
+      margin-right: 10px;
+      list-style: none;
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 23px;
+        font-size: 16px;
+        text-align: center;
+        letter-spacing: 0.3px;
+        line-height: 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 400;
+        background-color: transparent;
+        border: 1px solid var(--border-color);
+        color: var(--text-blue);
+      }
+      &.active {
+        button {
+          background-color: var(--text-blue) !important;
+          color: var(--main-white) !important;
+          border: none !important;
+        }
+      }
+    }
+  }
+  &_timeframe {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    padding: 18px 20px;
+    width: 100%;
+    background-color: var(--main-white);
+    gap: 10px;
+    border-radius: 10px;
+    p {
+      font-size: 18px;
+      color: var(--text-blue);
+      font-weight: 500;
+    }
+    button {
+      padding: 5px 16px;
+      color: var(--text-blue);
+      font-size: 16px;
+      font-weight: 400;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
+  &_contents {
+    width: 100%;
+    .content {
+      width: 100%;
+      display: none;
+      &.visible {
+        display: flex;
+      }
+    }
+  }
+}
