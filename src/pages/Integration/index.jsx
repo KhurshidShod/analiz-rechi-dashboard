@@ -13,28 +13,32 @@ import InstallingIntegrationModal from "../../components/InstallingIntegrationMo
 const Integration = () => {
   const [activeTab, setActiveTab] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [openedIntegration, setOpenedIntegration] = useState('')
+  const [openedIntegration, setOpenedIntegration] = useState("");
   const openInstallingTab = (e, isOpen) => {
-    setIsModalOpen(isOpen)
-    setOpenedIntegration(e.target.parentNode.parentNode.childNodes[1].textContent)
-  }
+    setIsModalOpen(isOpen);
+    setOpenedIntegration(
+      e.target.parentNode.parentNode.childNodes[1].textContent
+    );
+  };
   return (
     <div className={styles.integration}>
-      <InstallingIntegrationModal setModalOpen={setIsModalOpen} isOpen={isModalOpen} openedIntegration={openedIntegration}  />
+      <InstallingIntegrationModal
+        setModalOpen={setIsModalOpen}
+        isOpen={isModalOpen}
+        openedIntegration={openedIntegration}
+      />
       <h1>Интеграции</h1>
-      <div className={styles.integration_tabs}>
-        <ul>
-          <li className={activeTab === 1 ? styles.active : ""}>
-            <button onClick={() => setActiveTab(1)}>Установленные</button>
-          </li>
-          <li className={activeTab === 2 ? styles.active : ""}>
-            <button onClick={() => setActiveTab(2)}>CRM</button>
-          </li>
-          <li className={activeTab === 3 ? styles.active : ""}>
-            <button onClick={() => setActiveTab(3)}>Телефонии</button>
-          </li>
-        </ul>
-      </div>
+      <ul className={styles.integration_tabs}>
+        <li className={activeTab === 1 ? styles.active : ""}>
+          <button onClick={() => setActiveTab(1)}>Установленные</button>
+        </li>
+        <li className={activeTab === 2 ? styles.active : ""}>
+          <button onClick={() => setActiveTab(2)}>CRM</button>
+        </li>
+        <li className={activeTab === 3 ? styles.active : ""}>
+          <button onClick={() => setActiveTab(3)}>Телефонии</button>
+        </li>
+      </ul>
       <div className={styles.integration_contents}>
         <div
           className={`${styles.content} ${
@@ -71,7 +75,9 @@ const Integration = () => {
             </div>
             <p>amoCRM</p>
             <div>
-              <button onClick={(e) => openInstallingTab(e, true)}>Установить</button>
+              <button onClick={(e) => openInstallingTab(e, true)}>
+                Установить
+              </button>
               <button>Инструкция установки</button>
             </div>
           </div>
@@ -81,7 +87,9 @@ const Integration = () => {
             </div>
             <p>Битрикс</p>
             <div>
-              <button onClick={(e) => openInstallingTab(e, true)}>Установить</button>
+              <button onClick={(e) => openInstallingTab(e, true)}>
+                Установить
+              </button>
               <button>Инструкция установки</button>
             </div>
           </div>
@@ -97,7 +105,9 @@ const Integration = () => {
             </div>
             <p>Zoom</p>
             <div>
-              <button onClick={(e) => openInstallingTab(e, true)}>Установить</button>
+              <button onClick={(e) => openInstallingTab(e, true)}>
+                Установить
+              </button>
               <button>Инструкция установки</button>
             </div>
           </div>
@@ -107,7 +117,9 @@ const Integration = () => {
             </div>
             <p>Google Meet</p>
             <div>
-              <button onClick={(e) => openInstallingTab(e, true)}>Установить</button>
+              <button onClick={(e) => openInstallingTab(e, true)}>
+                Установить
+              </button>
               <button>Инструкция установки</button>
             </div>
           </div>
@@ -117,7 +129,9 @@ const Integration = () => {
             </div>
             <p>Яндекс телемост</p>
             <div>
-              <button onClick={(e) => openInstallingTab(e, true)}>Установить</button>
+              <button onClick={(e) => openInstallingTab(e, true)}>
+                Установить
+              </button>
               <button>Инструкция установки</button>
             </div>
           </div>
@@ -127,7 +141,9 @@ const Integration = () => {
             </div>
             <p>Vk звонки</p>
             <div>
-              <button onClick={(e) => openInstallingTab(e, true)}>Установить</button>
+              <button onClick={(e) => openInstallingTab(e, true)}>
+                Установить
+              </button>
               <button>Инструкция установки</button>
             </div>
           </div>
@@ -137,7 +153,9 @@ const Integration = () => {
             </div>
             <p>Контур Толк</p>
             <div>
-              <button onClick={(e) => openInstallingTab(e, true)}>Установить</button>
+              <button onClick={(e) => openInstallingTab(e, true)}>
+                Установить
+              </button>
               <button>Инструкция установки</button>
             </div>
           </div>

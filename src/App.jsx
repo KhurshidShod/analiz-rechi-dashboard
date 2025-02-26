@@ -3,13 +3,14 @@ import "./App.css";
 
 import Layout from "./layout";
 import Dashboard from "./pages/Dashboard";
-import Funnels from "./pages/Funnels"
-import Integration from "./pages/Integration"
-import Records from "./pages/Records"
-import Reports from "./pages/Reports"
-import Company from "./pages/Company"
-import Settings from "./pages/Settings"
-import Tariff from "./pages/Tariff"
+import Funnels from "./pages/Funnels";
+import Integration from "./pages/Integration";
+import Records from "./pages/Records";
+import Reports from "./pages/Reports";
+import Company from "./pages/Company";
+import Settings from "./pages/Settings";
+import Tariff from "./pages/Tariff";
+import { Flip, ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
@@ -28,6 +29,19 @@ const App = () => {
           </Route>
         </Routes>
       </Router>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        transition={Flip}
+      />
     </>
   );
 };

@@ -17,7 +17,7 @@
         &:last-child {
           padding-left: 0;
           justify-content: center;
-          p{
+          p {
             display: none;
           }
         }
@@ -29,7 +29,7 @@
           &:last-child {
             padding-left: 40px;
             justify-content: start;
-            p{
+            p {
               display: block;
             }
           }
@@ -87,7 +87,7 @@
         @media (max-width: 1200px) {
           padding-left: 0;
           justify-content: center;
-          p{
+          p {
             display: none;
           }
         }
@@ -105,7 +105,12 @@
         padding-bottom: 19px;
         color: white;
         font-size: 18px;
-        font-family: 'SF Pro';
+        font-family: "SF Pro";
+        div {
+          padding: 1px 10px;
+          border-radius: 30px;
+          border: 1px solid var(--border-color);
+        }
         @media (max-width: 1200px) {
           padding-left: 0;
           justify-content: center;

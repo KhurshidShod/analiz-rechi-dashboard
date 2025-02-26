@@ -1,0 +1,406 @@
+.tariff {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  font-family: "SF Pro" !important;
+  gap: 17px;
+  &_tabs {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    li {
+      list-style: none;
+      white-space: nowrap;
+      @media (max-width: 495px) {
+        width: calc(100% / 2 - 10px);
+        min-width: 120px;
+        flex-grow: 1;
+      }
+      @media (max-width: 657px) {
+        flex-grow: 1;
+      }
+      button {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 24px;
+        font-size: 16px;
+        text-align: center;
+        letter-spacing: 0.3px;
+        line-height: 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 400;
+        background-color: transparent;
+        border: 1px solid var(--border-color);
+        color: var(--text-blue);
+      }
+      &.active {
+        button {
+          background-color: var(--text-blue) !important;
+          color: var(--main-white) !important;
+          border: none !important;
+        }
+      }
+    }
+  }
+  
+  &_timeframe {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
+    p {
+      font-size: 18px;
+      color: var(--text-blue);
+      font-weight: 500;
+    }
+    button {
+        padding: 5px 16px;
+        color: var(--text-blue);
+        font-size: 16px;
+        font-weight: 400;
+        border-radius: 6px;
+        border: 1px solid var(--border-color);
+        background-color: transparent;
+        cursor: pointer;
+        background-color: var(--main-white);
+        @media (max-width: 450px) {
+          flex-grow: 1;
+        }
+      }
+  }
+  &_contents {
+    width: 100%;
+    .content {
+      width: 100%;
+      display: none;
+      &.visible {
+        display: block;
+      }
+      &:first-child {
+        padding: 20px 18px;
+        background-color: white;
+        &.visible {
+          display: flex;
+        }
+        justify-content: start;
+        align-items: start;
+        flex-direction: column;
+        gap: 14px;
+        border-radius: 10px;
+        border: 1px solid var(--border-color);
+        .mytarif {
+          border: 1px solid var(--border-color);
+          border-radius: 30px;
+          padding-inline: 10px;
+          display: flex;
+          align-items: center;
+          color: var(--text-blue);
+          font-size: 18px;
+          font-weight: 500;
+          span {
+            &:first-child {
+              width: 13px;
+              height: 13px;
+              background-color: var(--text-blue);
+              border-radius: 50%;
+              margin-right: 3px;
+            }
+            &:last-child {
+              width: 1px;
+              height: 18px;
+              margin-inline: 3px;
+              background-color: var(--border-color);
+            }
+          }
+        }
+        p {
+          color: var(--text-blue);
+          font-family: "SF Pro";
+          font-size: 14px;
+          font-weight: 400;
+        }
+        b {
+          color: #212833;
+          font-family: "SF Pro";
+          font-size: 18px;
+          font-weight: 500;
+        }
+        .tariffs {
+          width: 100%;
+          display: flex;
+          justify-content: start;
+          align-items: center;
+          gap: 14px;
+          flex-wrap: wrap;
+          .tarif {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid var(--border-color);
+            gap: 5px;
+            @media (max-width: 545px) {
+                flex-grow: 1;
+            }
+            span {
+              width: 100% !important;
+              font-family: "SF Pro";
+              height: auto !important;
+              background-color: transparent !important;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              color: var(--text-blue);
+            }
+            p {
+              color: #a9a9b9;
+              font-family: "SF Pro";
+              font-size: 14px;
+              font-weight: 400;
+            }
+            button {
+              width: 100%;
+              padding: 10px 24px;
+              border-radius: 6px;
+              border: 1px solid var(--text-blue);
+              color: var(--text-blue);
+              background-color: transparent;
+              cursor: pointer;
+            }
+          }
+        }
+        .suggestions {
+          width: 100%;
+          display: flex;
+          justify-content: start;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 14px;
+          .suggestion {
+            width: calc(100% / 2 - 15px);
+            min-width: 200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid var(--border-color);
+            flex-grow: 1;
+            div {
+              &:first-child {
+                display: flex;
+                justify-content: start;
+                align-items: start;
+                flex-direction: column;
+                gap: 5px;
+                p {
+                  &:first-child {
+                    color: var(--text-blue);
+                    font-family: "SF Pro";
+                    font-size: 14px;
+                    font-weight: 400;
+                  }
+                  &:last-child {
+                    color: #a9a9b9;
+                    font-family: "SF Pro";
+                    font-size: 14px;
+                    font-weight: 400;
+                  }
+                }
+              }
+              &:last-child {
+                display: flex;
+                justify-content: end;
+                align-items: center;
+                gap: 10px;
+                p {
+                  color: var(--text-blue);
+                  font-family: "SF Pro";
+                  font-size: 14px;
+                  font-weight: 400;
+                }
+                button {
+                  padding: 10px 24px;
+                  background-color: var(--text-blue);
+                  color: var(--main-white);
+                  border-radius: 6px;
+                  font-family: "SF Pro";
+                  font-size: 16px;
+                  font-weight: 500;
+                  line-height: 20px;
+                  letter-spacing: 0.3px;
+                  border: none;
+                  min-width: 130px;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+      }
+      .second_content {
+        width: 100%;
+        display: none;
+        &.visible {
+          display: flex;
+        }
+        justify-content: start;
+        align-items: start;
+        flex-direction: column;
+        &_top {
+          width: 100%;
+          display: flex;
+          justify-content: start;
+          align-items: start;
+          flex-direction: column;
+          gap: 14px;
+          padding: 18px 20px;
+          background-color: var(--main-white);
+          border: 1px solid var(--border-color);
+          border-radius: 10px;
+          div {
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 3px;
+            padding-inline: 10px;
+            color: var(--text-blue);
+            font-size: 18px;
+            font-weight: 500;
+            span {
+              &:first-child {
+                width: 13px;
+                height: 13px;
+                border-radius: 50%;
+                background-color: var(--text-blue);
+              }
+              &:last-child {
+                width: 2px;
+                height: 18px;
+                background-color: var(--border-color);
+              }
+            }
+          }
+          p {
+            color: var(--text-blue);
+            font-family: "SF Pro";
+            font-size: 14px;
+            font-weight: 400;
+          }
+        }
+        &_all_tariffs {
+          width: 100%;
+          display: flex;
+          justify-content: start;
+          align-items: start;
+          flex-direction: column;
+          h2 {
+            margin-top: 16px;
+            margin-bottom: 24px;
+            color: #171739;
+            font-family: "SF Pro";
+            font-size: 24px;
+            font-weight: 500;
+          }
+          &_tariffs {
+            width: 100%;
+            display: flex;
+            justify-content: stretch;
+            align-items: stretch;
+            flex-wrap: wrap;
+            gap: 25px;
+            &_tarif {
+              width: calc(100% / 3 - 25px);
+              padding: 30px;
+              display: flex;
+              justify-content: start;
+              align-items: start;
+              flex-direction: column;
+              border: 1px solid var(--border-color);
+              border-radius: 10px;
+              background-color: var(--main-white);
+              gap: 18px;
+              min-width: 250px;
+              flex-grow: 1;
+              .top {
+                position: relative;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-bottom: 1px solid var(--border-color);
+                span {
+                  position: absolute;
+                  width: 21px;
+                  height: 3px;
+                  background-color: var(--text-blue);
+                  bottom: -1.5px;
+                  border-radius: 10px;
+                }
+                p {
+                  color: var(--text-blue);
+                  font-family: "SF Pro";
+                  font-size: 18px;
+                  font-weight: 500;
+                  padding-bottom: 3px;
+                }
+              }
+              h1 {
+                color: var(--text-blue);
+                font-family: "SF Pro";
+                font-size: 32px;
+                font-weight: 800;
+              }
+              button {
+                width: 100%;
+                padding: 10px 24px;
+                border-radius: 6px;
+                background: var(--text-blue);
+                color: var(--main-white);
+                text-align: center;
+                font-family: "SF Pro";
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 20px;
+                letter-spacing: 0.3px;
+                border: none;
+                cursor: pointer;
+              }
+              ul {
+                display: flex;
+                justify-content: start;
+                align-items: start;
+                flex-direction: column;
+                gap: 24px;
+                li {
+                  display: flex;
+                  justify-content: start;
+                  align-items: center;
+                  color: #a9a9b9;
+                  font-family: "SF Pro";
+                  font-size: 18px;
+                  font-weight: 500;
+                  list-style: none;
+                  gap: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

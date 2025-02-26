@@ -101,6 +101,7 @@ const Sidebar = ({ collapsed }) => {
         <li onClick={(e) => slideFunction(e)}>
           <Link to="/tariff">
             <p>Tариф</p>
+            <div>Pro</div>
           </Link>
         </li>
         <li onClick={(e) => slideFunction(e)}>

@@ -14,6 +14,9 @@
     @media (max-width: 1200px) {
       width: calc(100% - 65px);
     }
+    @media (max-width: 950px) {
+      padding: 10px 20px;
+    }
     &.collapsed {
       width: calc(100% - 65px);
     }
