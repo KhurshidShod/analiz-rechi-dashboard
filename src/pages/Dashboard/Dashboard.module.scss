@@ -228,11 +228,25 @@
             flex-direction: column;
             justify-content: start;
             gap: 10px;
-            h3 {
-              color: var(--text-blue);
-              font-family: "SF Pro";
-              font-size: 18px;
-              font-weight: 500;
+            .content_effectiveness_tab_title {
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              h3 {
+                color: var(--text-blue);
+                font-family: "SF Pro";
+                font-size: 18px;
+                font-weight: 500;
+              }
+              a {
+                text-decoration: none;
+                color: #171739;
+                font-family: "SF Pro";
+                font-size: 14px;
+                font-weight: 500;
+                letter-spacing: 0.3px;
+              }
             }
             .content_effectiveness_tab_managers {
               display: flex;

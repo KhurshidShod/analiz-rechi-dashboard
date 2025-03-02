@@ -4,10 +4,14 @@ import WaveSurfer from "wavesurfer.js";
 import Audio from "@assets/audios/audio.mp3";
 import PlayIcon from "@assets/icons/play_icon.svg";
 
-const FullTransactionModal = ({isTransactionModalOpen, setIsTransactionModalOpen}) => {
+const FullTransactionModal = ({
+  isTransactionModalOpen,
+  setIsTransactionModalOpen,
+}) => {
   const [currentTime, setCurrentTime] = useState("0:00");
   const [totalTime, setTotalTime] = useState("0:00");
   const [wavesurfer, setWavesurfer] = useState(null);
+  const [playBackSpeed, setPlayBackSpeed] = useState(1);
   const [checkedInputs, setCheckedInputs] = useState({
     greetings: 1,
     needsIdentity: 1,
@@ -53,19 +57,29 @@ const FullTransactionModal = ({isTransactionModalOpen, setIsTransactionModalOpen
       wavesurfer.playPause();
     }
   };
+  const handleChangeSpeed = (speed) => {
+    if (wavesurfer) {
+      setPlayBackSpeed(speed);
+      wavesurfer.setPlaybackRate(speed);
+    }
+  };
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60);
     return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
   };
   return (
-    <div className={`${styles.transaction} ${isTransactionModalOpen ? styles.opened : ""}`}>
+    <div
+      className={`${styles.transaction} ${
+        isTransactionModalOpen ? styles.opened : ""
+      }`}
+    >
       <div className={styles.transaction_modal}>
         <div className={styles.transaction_modal_header}>
           <svg
             onClick={() => {
-                setIsTransactionModalOpen(false)
-                wavesurfer.pause()
+              setIsTransactionModalOpen(false);
+              wavesurfer.pause();
             }}
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -97,6 +111,15 @@ const FullTransactionModal = ({isTransactionModalOpen, setIsTransactionModalOpen
               <span>
                 {currentTime}/{totalTime}
               </span>
+              <p
+                onClick={() =>
+                  handleChangeSpeed(
+                    playBackSpeed === 1 ? 1.5 : playBackSpeed === 1.5 ? 2 : 1
+                  )
+                }
+              >
+                x{playBackSpeed}
+              </p>
             </div>
           </div>
         </div>
@@ -255,7 +278,9 @@ const FullTransactionModal = ({isTransactionModalOpen, setIsTransactionModalOpen
               </div>
               <div className={styles.right}>
                 <span>75%</span>
-                <button onClick={() => setIsFullRatingOpen(true)}>Подробнее</button>
+                <button onClick={() => setIsFullRatingOpen(true)}>
+                  Подробнее
+                </button>
               </div>
             </div>
             <div className={styles.transaction_modal_checkList_content_item}>
@@ -313,7 +338,9 @@ const FullTransactionModal = ({isTransactionModalOpen, setIsTransactionModalOpen
               </div>
               <div className={styles.right}>
                 <span>55%</span>
-                <button onClick={() => setIsFullRatingOpen(true)}>Подробнее</button>
+                <button onClick={() => setIsFullRatingOpen(true)}>
+                  Подробнее
+                </button>
               </div>
             </div>
             <div className={styles.transaction_modal_checkList_content_item}>
@@ -371,7 +398,9 @@ const FullTransactionModal = ({isTransactionModalOpen, setIsTransactionModalOpen
               </div>
               <div className={styles.right}>
                 <span>75%</span>
-                <button onClick={() => setIsFullRatingOpen(true)}>Подробнее</button>
+                <button onClick={() => setIsFullRatingOpen(true)}>
+                  Подробнее
+                </button>
               </div>
             </div>
             <div className={styles.transaction_modal_checkList_content_item}>
@@ -435,7 +464,9 @@ const FullTransactionModal = ({isTransactionModalOpen, setIsTransactionModalOpen
               </div>
               <div className={styles.right}>
                 <span>75%</span>
-                <button onClick={() => setIsFullRatingOpen(true)}>Подробнее</button>
+                <button onClick={() => setIsFullRatingOpen(true)}>
+                  Подробнее
+                </button>
               </div>
             </div>
             <div className={styles.transaction_modal_checkList_content_item}>
@@ -499,12 +530,18 @@ const FullTransactionModal = ({isTransactionModalOpen, setIsTransactionModalOpen
               </div>
               <div className={styles.right}>
                 <span>75%</span>
-                <button onClick={() => setIsFullRatingOpen(true)}>Подробнее</button>
+                <button onClick={() => setIsFullRatingOpen(true)}>
+                  Подробнее
+                </button>
               </div>
             </div>
           </div>
         </div>
-        <div className={`${styles.transaction_modal_fullrating} ${isFullRatingOpen ? styles.opened : ""}`}>
+        <div
+          className={`${styles.transaction_modal_fullrating} ${
+            isFullRatingOpen ? styles.opened : ""
+          }`}
+        >
           <h1>Общая оценка</h1>
           <h3>Плюсы</h3>
           <p>

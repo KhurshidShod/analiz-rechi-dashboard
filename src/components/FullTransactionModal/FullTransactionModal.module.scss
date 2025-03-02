@@ -87,6 +87,13 @@
             color: var(--text-blue);
             padding-left: 60px;
           }
+          p{
+            color: var(--main-white);
+            background-color: var(--text-blue);
+            padding: 0px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+          }
         }
       }
     }

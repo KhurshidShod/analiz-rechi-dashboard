@@ -18,6 +18,7 @@ import dayjs from "dayjs";
 
 import { DatePicker } from "antd";
 import FullTransactionModal from "../../components/FullTransactionModal";
+import { Link } from "react-router-dom";
 
 const { RangePicker } = DatePicker;
 
@@ -412,7 +413,10 @@ const DashboardPage = () => {
               </div>
             </div>
             <div className={styles.content_effectiveness_tab}>
-              <h3>Критичные оценки менеджеров</h3>
+              <div className={styles.content_effectiveness_tab_title}>
+                <h3>Критичные оценки менеджеров</h3>
+                <Link>Смотреть всё</Link>
+              </div>
               <div className={styles.content_effectiveness_tab_managers}>
                 <div>
                   <div>
