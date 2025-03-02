@@ -11,18 +11,17 @@ import {
   CategoryScale,
   BarElement,
 } from "chart.js";
+import { Table } from "antd";
+
 import { Doughnut, Bar, Line } from "react-chartjs-2";
 
 import styles from "./Dashboard.module.scss";
-import dayjs from "dayjs";
 
-import { DatePicker } from "antd";
 import FullTransactionModal from "../../components/FullTransactionModal";
 import { Link } from "react-router-dom";
+import { render } from "sass";
+import DiapazonComponent from "../../components/Diapazon";
 
-const { RangePicker } = DatePicker;
-
-const dateFormat = "YYYY-MM-DD";
 ChartJS.register(
   ArcElement,
   CategoryScale,
@@ -38,6 +37,61 @@ ChartJS.register(
 const DashboardPage = () => {
   const [activeTab, setActiveTab] = useState(1);
   const [isTransactionModalOpen, setIsTransactionModalOpen] = useState(false);
+
+  const columnsManagersSection = [
+    {
+      title: "ФИО",
+      dataIndex: "fio",
+    },
+    {
+      title: "Краткое содержание беседы",
+      dataIndex: "shortMeaning",
+      render: (text) => <span className={styles.table_span}>{text}%</span>,
+    },
+    {
+      title: "Приветствие",
+      dataIndex: "greetings",
+      render: (text) => <span>{text}%</span>,
+    },
+    {
+      title: "Выявление потребностей",
+      dataIndex: "needsIdentification",
+      render: (text) => <span>{text}%</span>,
+    },
+    {
+      title: "Презентация",
+      dataIndex: "presentation",
+      render: (text) => <span>{text}%</span>,
+    },
+    {
+      title: "Закрытие возражений",
+      dataIndex: "closingObjections",
+      render: (text) => <span>{text}%</span>,
+    },
+    {
+      title: "Закрытие",
+      dataIndex: "closing",
+      render: (text) => <span>{text}%</span>,
+    },
+    {
+      title: "",
+      dataIndex: "more",
+      render: (text) => <Link to="/менежер/александра-белковская">{text}</Link>,
+    },
+  ];
+
+  const dataSourceManagersSection = Array.from({ length: 46 }).map((_, i) => ({
+    key: i,
+    fio: "Александра Беловская",
+    shortMeaning: "35",
+    greetings: "35",
+    needsIdentification: "35",
+    presentation: "35",
+    closingObjections: "35",
+    closing: "35",
+    more: "Подробнее",
+  }));
+
   const dataDoughnut = {
     datasets: [
       {
@@ -328,26 +382,7 @@ const DashboardPage = () => {
           <button onClick={() => setActiveTab(6)}>Минусы</button>
         </li>
       </ul>
-      <div className={styles.dashboard_timeframe}>
-        <p>Диапазон</p>
-        <RangePicker
-          defaultValue={[
-            dayjs("2025-02-06", dateFormat),
-            dayjs("2025-02-07", dateFormat),
-          ]}
-          style={{
-            borderColor: "#E0E0F4",
-            fontSize: "18px",
-            fontWeight: "500",
-            color: "#213366",
-          }}
-        />
-        <button>Сегодня</button>
-        <button>Вчера</button>
-        <button>Неделя</button>
-        <button>Месяц</button>
-        <button>Весь период</button>
-      </div>
+      <DiapazonComponent />
       <div className={styles.dashboard_contents}>
         <div
           className={`${styles.content} ${
@@ -588,11 +623,41 @@ const DashboardPage = () => {
             </div>
           </div>
           <div className={styles.content_sections}>
+            <h1>Показатели менеджеров по отделу</h1>
             <div className={styles.content_sections_tabs}>
               <button>Продажи</button>
               <button>Колл-центр</button>
             </div>
-            <input type="text" name="" id="" />
+            <div className={styles.content_sections_search}>
+              <input
+                placeholder="Поиск  по имени или фамилии "
+                type="text"
+                name=""
+                id=""
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <g opacity="0.4">
+                  <path
+                    d="M21.7094 20.2904L17.9994 16.6104C19.4395 14.8148 20.1369 12.5357 19.9482 10.2417C19.7595 7.94769 18.6991 5.81318 16.9849 4.27704C15.2708 2.7409 13.0332 1.9199 10.7323 1.98286C8.43145 2.04582 6.24214 2.98795 4.61456 4.61553C2.98698 6.24311 2.04485 8.43243 1.98189 10.7333C1.91893 13.0342 2.73992 15.2718 4.27606 16.9859C5.8122 18.7001 7.94672 19.7605 10.2407 19.9492C12.5347 20.1379 14.8138 19.4405 16.6094 18.0004L20.2894 21.6804C20.3824 21.7741 20.493 21.8485 20.6148 21.8993C20.7367 21.9501 20.8674 21.9762 20.9994 21.9762C21.1314 21.9762 21.2621 21.9501 21.384 21.8993C21.5059 21.8485 21.6165 21.7741 21.7094 21.6804C21.8897 21.4939 21.9904 21.2447 21.9904 20.9854C21.9904 20.7261 21.8897 20.4769 21.7094 20.2904ZM10.9994 18.0004C9.61495 18.0004 8.26157 17.5899 7.11042 16.8207C5.95928 16.0515 5.06207 14.9583 4.53226 13.6792C4.00245 12.4001 3.86382 10.9926 4.13392 9.63476C4.40402 8.27689 5.0707 7.02961 6.04967 6.05065C7.02864 5.07168 8.27592 4.40499 9.63378 4.1349C10.9917 3.8648 12.3991 4.00342 13.6782 4.53324C14.9573 5.06305 16.0505 5.96026 16.8197 7.1114C17.5889 8.26255 17.9994 9.61592 17.9994 11.0004C17.9994 12.8569 17.2619 14.6374 15.9492 15.9501C14.6364 17.2629 12.8559 18.0004 10.9994 18.0004Z"
+                    fill="#A9A9B9"
+                  />
+                </g>
+              </svg>
+            </div>
+            <div className={styles.content_sections_table}>
+              <Table
+                scroll={{ x: true }}
+                bordered={true}
+                columns={columnsManagersSection}
+                dataSource={dataSourceManagersSection}
+              />
+            </div>
           </div>
         </div>
         <div

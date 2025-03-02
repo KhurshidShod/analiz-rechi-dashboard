@@ -1,0 +1,220 @@
+.manager {
+  width: 100%;
+  .close_manager {
+    padding: 5px 7px;
+    border-radius: 4.95px;
+    border: 1px solid var(--text-blue);
+    cursor: pointer;
+  }
+  &_top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding-top: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    div {
+      display: flex;
+      justify-content: start;
+      align-items: start;
+      flex-direction: column;
+      h1 {
+        color: #171739;
+        font-family: "SF Pro";
+        font-size: 40px;
+        font-weight: 500;
+      }
+      h2 {
+        color: #b8b8b8;
+        font-family: "SF Pro";
+        font-size: 24px;
+        font-weight: 500;
+      }
+    }
+    button {
+      min-width: 200px;
+      padding: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      background-color: transparent;
+      border-radius: 6px;
+      border: 1px solid var(--text-blue);
+      color: #1c2046;
+      text-align: center;
+      font-family: "SF Pro";
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+    }
+  }
+  &_stats {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: stretch;
+    margin-top: 24px;
+    gap: 20px;
+    flex-wrap: wrap;
+    div {
+      width: calc(100% / 3 - 20px);
+      padding: 24px;
+      min-width: 200px;
+      flex-grow: 1;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background: var(--main-white);
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      flex-direction: column;
+      gap: 1rem;
+      &:first-child {
+        h2 {
+          color: #cc0a2a;
+          font-variant-numeric: lining-nums tabular-nums;
+          font-family: "SF Pro";
+          font-size: 40px;
+          font-weight: 500;
+        }
+      }
+      p {
+        color: #b8b8b8;
+        font-variant-numeric: lining-nums tabular-nums;
+        font-family: "SF Pro";
+        font-size: 16px;
+        font-weight: 500;
+      }
+      h2 {
+        color: #171739;
+        font-variant-numeric: lining-nums tabular-nums;
+        font-family: "SF Pro";
+        font-size: 40px;
+        font-weight: 500;
+      }
+    }
+  }
+  &_graphs {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-block: 2rem;
+    @media (max-width: 850px) {
+      flex-direction: column;
+    }
+    div {
+      width: calc(100% / 2 - 1rem);
+      background-color: var(--main-white);
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      padding: 24px;
+      min-width: 200px;
+      @media (max-width: 850px) {
+        width: 100%;
+      }
+      h2 {
+        color: var(--text-blue);
+        font-family: "SF Pro";
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+      div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: transparent;
+        border: none;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        border-radius: 0;
+        padding: 0;
+        margin-bottom: 1rem;
+        h2 {
+          margin-bottom: 0;
+        }
+        select {
+          padding: 5px 15px;
+          border-radius: 6px;
+          border: 1px solid #171739;
+          color: #171739;
+          text-align: center;
+          font-family: "SF Pro";
+          font-size: 16px;
+          font-weight: 500;
+          letter-spacing: 0.3px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  &_table {
+    width: 100%;
+    padding-top: 1rem;
+    overflow: auto;
+    table {
+      tbody {
+        tr {
+          td {
+            &:nth-child(1) {
+              text-align: center;
+            }
+            &:nth-child(2) {
+              text-align: end;
+            }
+            &:nth-child(3) {
+              text-align: center;
+              button {
+                padding: 8px 12px;
+                border-radius: 6px;
+                border: 1px solid var(--text-blue);
+                background-color: var(--main-white);
+                cursor: pointer;
+                color: var(--text-blue);
+                text-align: center;
+                font-family: "SF Pro";
+                font-size: 16px;
+                font-weight: 500;
+                letter-spacing: 0.3px;
+              }
+            }
+            &:nth-child(5) {
+              text-align: center;
+              button {
+                padding: 10px 16px;
+                border-radius: 6px;
+                border: 1px solid var(--text-blue);
+                background-color: var(--text-blue);
+                cursor: pointer;
+                color: var(--main-white);
+                text-align: center;
+                font-family: "SF Pro";
+                font-size: 16px;
+                font-weight: 700;
+                letter-spacing: 0.3px;
+              }
+            }
+            span {
+              color: #cc0a2a;
+              text-align: center;
+              font-family: "SF Pro";
+              font-size: 16px;
+              font-weight: 500;
+              border-radius: 5px;
+              background: #ffe8eb;
+              padding: 5px 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

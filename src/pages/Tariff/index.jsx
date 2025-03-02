@@ -1,12 +1,9 @@
 import { useState } from "react";
 import styles from "./Tariff.module.scss";
 import { Table } from "antd";
-import dayjs from "dayjs";
-import { DatePicker } from "antd";
 import PurchasingTariffModal from "../../components/PurchasingTariffModal";
-const { RangePicker } = DatePicker;
+import DiapazonComponent from "../../components/Diapazon";
 
-const dateFormat = "YYYY-MM-DD";
 const columns = [
   {
     title: "№ операции",
@@ -56,26 +53,7 @@ const TariffPage = () => {
           <button onClick={() => setActiveTab(3)}>История операций</button>
         </li>
       </ul>
-      <div className={styles.tariff_timeframe}>
-        <p>Диапазон</p>
-        <RangePicker
-          defaultValue={[
-            dayjs("2025-02-06", dateFormat),
-            dayjs("2025-02-07", dateFormat),
-          ]}
-          style={{
-            borderColor: "#E0E0F4",
-            fontSize: "18px",
-            fontWeight: "500",
-            color: "#213366",
-          }}
-        />
-        <button>Сегодня</button>
-        <button>Вчера</button>
-        <button>Неделя</button>
-        <button>Месяц</button>
-        <button>Весь период</button>
-      </div>
+      <DiapazonComponent hasBackground={false} />
       <div className={styles.tariff_contents}>
         <div
           className={`${styles.content} ${

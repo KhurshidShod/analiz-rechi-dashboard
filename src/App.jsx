@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 
 import Layout from "./layout";
@@ -17,6 +17,7 @@ import ObjectionsPage from "./pages/Objections";
 import SalesPage from "./pages/Sales";
 
 import { Flip, ToastContainer } from "react-toastify";
+import ManagerIndividual from "./pages/ManagerIndividual";
 
 const App = () => {
   return (
@@ -24,7 +25,8 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route path="дашборд" element={<DashboardPage />} />
+            <Route index element={<Navigate to="дашборд" replace />} />
+            <Route path="дашборд" action element={<DashboardPage />} />
             <Route path="компания" element={<CompanyPage />} />
             <Route path="воронки" element={<FunnelsPage />} />
             <Route path="настройка" element={<SettingsPage />} />
@@ -36,6 +38,7 @@ const App = () => {
             <Route path="потребности" element={<NeedsPage />} />
             <Route path="плюсы" element={<ProfitsPage />} />
             <Route path="минусы" element={<LossesPage />} />
+            <Route path="менежер/:name" element={<ManagerIndividual />} />
           </Route>
         </Routes>
       </Router>
