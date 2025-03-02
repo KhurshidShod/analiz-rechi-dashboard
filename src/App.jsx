@@ -2,14 +2,20 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import Layout from "./layout";
-import Dashboard from "./pages/Dashboard";
-import Funnels from "./pages/Funnels";
-import Integration from "./pages/Integration";
-import Records from "./pages/Records";
-import Reports from "./pages/Reports";
-import Company from "./pages/Company";
-import Settings from "./pages/Settings";
-import Tariff from "./pages/Tariff";
+
+import DashboardPage from "./pages/Dashboard";
+import FunnelsPage from "./pages/Funnels";
+import IntegrationPage from "./pages/Integration";
+import CompanyPage from "./pages/Company";
+import SettingsPage from "./pages/Settings";
+import TariffPage from "./pages/Tariff";
+import CallCenterPage from "./pages/CallCenter";
+import LossesPage from "./pages/Losses";
+import ProfitsPage from "./pages/Profits";
+import NeedsPage from "./pages/Needs";
+import ObjectionsPage from "./pages/Objections";
+import SalesPage from "./pages/Sales";
+
 import { Flip, ToastContainer } from "react-toastify";
 
 const App = () => {
@@ -18,14 +24,18 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="company" element={<Company />} />
-            <Route path="funnels" element={<Funnels />} />
-            <Route path="records" element={<Records />} />
-            <Route path="reports" element={<Reports />} />
-            <Route path="settings" element={<Settings />} />
-            <Route path="tariff" element={<Tariff />} />
-            <Route path="integration" element={<Integration />} />
+            <Route path="дашборд" element={<DashboardPage />} />
+            <Route path="компания" element={<CompanyPage />} />
+            <Route path="воронки" element={<FunnelsPage />} />
+            <Route path="настройка" element={<SettingsPage />} />
+            <Route path="тариф" element={<TariffPage />} />
+            <Route path="интеграции" element={<IntegrationPage />} />
+            <Route path="продажи" element={<SalesPage />} />
+            <Route path="колл-центр" element={<CallCenterPage />} />
+            <Route path="возражения" element={<ObjectionsPage />} />
+            <Route path="потребности" element={<NeedsPage />} />
+            <Route path="плюсы" element={<ProfitsPage />} />
+            <Route path="минусы" element={<LossesPage />} />
           </Route>
         </Routes>
       </Router>

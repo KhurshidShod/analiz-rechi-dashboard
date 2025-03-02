@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Funnels = () => {
+const FunnelsPage = () => {
   return (
     <div>Funnels</div>
   )
 }
 
-export default Funnels
+export default FunnelsPage

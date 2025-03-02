@@ -2,7 +2,7 @@ import styles from "./Settings.module.scss";
 import EditIcon from "@assets/icons/edit.svg";
 import VisibleIcon from "@assets/icons/visible_toggle.svg";
 
-const Settings = () => {
+const SettingsPage = () => {
   return (
     <div className={styles.settings}>
       <h1>Настройки аккаунта</h1>
@@ -109,4 +109,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default SettingsPage;

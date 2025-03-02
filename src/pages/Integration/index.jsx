@@ -10,7 +10,7 @@ import vkImage from "@assets/images/vk.svg";
 import ktalkImage from "@assets/images/ktalk.svg";
 import InstallingIntegrationModal from "../../components/InstallingIntegrationModal";
 
-const Integration = () => {
+const IntegrationPage = () => {
   const [activeTab, setActiveTab] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [openedIntegration, setOpenedIntegration] = useState("");
@@ -165,4 +165,4 @@ const Integration = () => {
   );
 };
 
-export default Integration;
+export default IntegrationPage;

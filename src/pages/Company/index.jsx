@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Company = () => {
+const CompanyPage = () => {
   return (
     <div>Company</div>
   )
 }
 
-export default Company
+export default CompanyPage

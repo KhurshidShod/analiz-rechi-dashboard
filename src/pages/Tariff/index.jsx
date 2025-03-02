@@ -35,7 +35,7 @@ const dataSource = Array.from({
   operationType: "Списание",
 }));
 
-const Tariff = () => {
+const TariffPage = () => {
   const [activeTab, setActiveTab] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -401,4 +401,4 @@ const Tariff = () => {
   );
 };
 
-export default Tariff;
+export default TariffPage;
