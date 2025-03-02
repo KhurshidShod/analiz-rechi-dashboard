@@ -372,7 +372,7 @@ const TariffPage = () => {
             activeTab === 3 ? styles.visible : ""
           }`}
         >
-          <Table columns={columns} bordered={true} dataSource={dataSource} />
+          <Table scroll={{x: true}} columns={columns} bordered={true} dataSource={dataSource} />
         </div>
       </div>
     </div>
