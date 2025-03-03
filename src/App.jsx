@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import "./App.css";
 
 import Layout from "./layout";
@@ -19,6 +24,7 @@ import SalesPage from "./pages/Sales";
 import { Flip, ToastContainer } from "react-toastify";
 import ManagerIndividual from "./pages/ManagerIndividual";
 import EffectivityBySectionsPage from "./pages/EffectivityBySections";
+import RatingAllManagersPage from "./pages/RatingAllManagers";
 
 const App = () => {
   return (
@@ -39,7 +45,14 @@ const App = () => {
             <Route path="потребности" element={<NeedsPage />} />
             <Route path="плюсы" element={<ProfitsPage />} />
             <Route path="минусы" element={<LossesPage />} />
-            <Route path="эффективность" element={<EffectivityBySectionsPage />} />
+            <Route
+              path="эффективность"
+              element={<EffectivityBySectionsPage />}
+            />
+            <Route
+              path="оценки-менеджеров"
+              element={<RatingAllManagersPage />}
+            />
             <Route path="менежер/:name" element={<ManagerIndividual />} />
           </Route>
         </Routes>

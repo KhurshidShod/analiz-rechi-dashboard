@@ -664,7 +664,7 @@ const DashboardPage = () => {
             <div className={styles.content_effectiveness_tab}>
               <div className={styles.content_effectiveness_tab_title}>
                 <h3>Критичные оценки менеджеров</h3>
-                <Link>Смотреть всё</Link>
+                <Link to="/оценки-менеджеров">Смотреть всё</Link>
               </div>
               <div className={styles.content_effectiveness_tab_managers}>
                 <div>

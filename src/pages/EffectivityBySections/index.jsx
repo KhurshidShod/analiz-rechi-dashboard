@@ -15,6 +15,8 @@ import {
   BarElement,
 } from "chart.js";
 import { Link } from "react-router-dom";
+import EffectivityBySectionDetailedModal from "../../components/EffectivityBySectionDetailedModal";
+import { useState } from "react";
 
 ChartJS.register(
   ArcElement,
@@ -29,6 +31,9 @@ ChartJS.register(
 );
 
 const EffectivityBySectionsPage = () => {
+
+  const [isModalOpened, setIsModalOpened] = useState(false)
+
   const columnsTable = [
     {
       title: "Дата",
@@ -62,7 +67,7 @@ const EffectivityBySectionsPage = () => {
     {
       title: "",
       dataIndex: "freeSpace",
-      render: (text) => <button>{text}</button>,
+      render: (text) => <button onClick={() => setIsModalOpened(true)}>{text}</button>,
     },
   ];
   const dataTable = Array.from({ length: 2 }).map((_, i) => ({
@@ -170,6 +175,7 @@ const EffectivityBySectionsPage = () => {
 
   return (
     <div className={styles.effectivity}>
+      <EffectivityBySectionDetailedModal isOpened={isModalOpened} setIsOpened={setIsModalOpened} />
       <Link className={styles.go_back} to="/дашборд?tab=1">
         <svg
           xmlns="http://www.w3.org/2000/svg"
