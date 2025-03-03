@@ -1,0 +1,76 @@
+.effectivity {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  gap: 12px;
+  a.go_back{
+    padding: 5px;
+    border: 1px solid var(--text-blue);
+    border-radius: 8px 5px;
+    cursor: pointer;
+  }
+  h1 {
+    color: #171739;
+    font-family: "SF Pro";
+    font-size: 40px;
+    font-weight: 500;
+  }
+  &_table {
+    width: 100%;
+    margin-top: 10px;
+    table {
+      thead {
+        tr {
+          th {
+            white-space: nowrap !important;
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+            color: #1c2046;
+            font-family: "SF Pro";
+            font-size: 14px;
+            font-weight: 400;
+            text-align: center;
+            span {
+              padding: 4px 14px;
+              background-color: #e1f5c5;
+              color: #65953c;
+              border-radius: 5px;
+            }
+            button {
+              padding: 10px 24px;
+              border-radius: 4px;
+              background: var(--text-blue);
+              color: #fff;
+              text-align: center;
+              font-family: "SF Pro";
+              font-size: 14px;
+              font-weight: 500;
+              line-height: 20px;
+              letter-spacing: 0.3px;
+              border: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  &_line {
+    width: 100%;
+    min-height: 250px;
+    h1 {
+      color: #171739;
+      font-family: "SF Pro";
+      font-size: 24px;
+      font-weight: 500;
+      @media (max-width: 750px) {
+        font-size: 18px;
+      }
+    }
+  }
+}

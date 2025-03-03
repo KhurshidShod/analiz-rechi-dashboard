@@ -230,7 +230,7 @@ const ManagerIndividual = () => {
 
   return (
     <div className={styles.manager}>
-      <Link to="/дашборд" className={styles.close_manager}>
+      <Link to="/дашборд?tab=2" className={styles.close_manager}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="18"

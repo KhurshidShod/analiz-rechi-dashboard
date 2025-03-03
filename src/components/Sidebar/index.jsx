@@ -53,10 +53,6 @@ const Sidebar = ({ collapsed }) => {
     }
   };
   const droppedLinkFunction = (e) => {
-    // onClick={(e) => {
-    //   slideFunction(e);
-    //   droppedLinkFunction("");
-    // }}
     if (openedLink === e) {
       setOpenedLink(null);
     } else {
@@ -72,7 +68,7 @@ const Sidebar = ({ collapsed }) => {
           className={styles.slider}
         ></div>
         <li ref={firstLink} onClick={(e) => slideFunction(e)}>
-          <Link to="/дашборд">
+          <Link to="/дашборд?tab=1">
             <span>
               <img src={HomeLogo} alt="" />
             </span>

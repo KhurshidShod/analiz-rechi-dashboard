@@ -18,6 +18,7 @@ import SalesPage from "./pages/Sales";
 
 import { Flip, ToastContainer } from "react-toastify";
 import ManagerIndividual from "./pages/ManagerIndividual";
+import EffectivityBySectionsPage from "./pages/EffectivityBySections";
 
 const App = () => {
   return (
@@ -25,7 +26,7 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Navigate to="дашборд" replace />} />
+            <Route index element={<Navigate to="дашборд?tab=1" replace />} />
             <Route path="дашборд" action element={<DashboardPage />} />
             <Route path="компания" element={<CompanyPage />} />
             <Route path="воронки" element={<FunnelsPage />} />
@@ -38,6 +39,7 @@ const App = () => {
             <Route path="потребности" element={<NeedsPage />} />
             <Route path="плюсы" element={<ProfitsPage />} />
             <Route path="минусы" element={<LossesPage />} />
+            <Route path="эффективность" element={<EffectivityBySectionsPage />} />
             <Route path="менежер/:name" element={<ManagerIndividual />} />
           </Route>
         </Routes>

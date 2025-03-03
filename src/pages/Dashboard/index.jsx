@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -18,7 +18,7 @@ import { Doughnut, Bar, Line } from "react-chartjs-2";
 import styles from "./Dashboard.module.scss";
 
 import FullTransactionModal from "../../components/FullTransactionModal";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { render } from "sass";
 import DiapazonComponent from "../../components/Diapazon";
 
@@ -37,7 +37,8 @@ ChartJS.register(
 const DashboardPage = () => {
   const [activeTab, setActiveTab] = useState(1);
   const [isTransactionModalOpen, setIsTransactionModalOpen] = useState(false);
-
+  const [searchParams] = useSearchParams();
+  const tabParam = searchParams.get("tab");
   const columnsManagersSection = [
     {
       title: "ФИО",
@@ -92,6 +93,214 @@ const DashboardPage = () => {
     more: "Подробнее",
   }));
 
+  const dataObjectionsSecondLine = {
+    labels: [
+      "23.10.24",
+      "24.10.24",
+      "25.10.24",
+      "28.10.24",
+      "29.10.24",
+      "30.10.24",
+      "31.10.24",
+      "1.11.24",
+      "4.11.24",
+      "5.11.24",
+      "6.11.24",
+      "7.11.24",
+      "8.11.24",
+      "11.11.24",
+      "12.11.24",
+      "13.11.24",
+      "14.11.24",
+      "15.11.24",
+      "18.11.24",
+    ],
+    datasets: [
+      {
+        label: "Интерес к списанию долгов",
+        data: [
+          72, 78, 85, 88, 90, 86, 84, 82, 80, 78, 75, 72, 70, 68, 65, 63, 60,
+          58, 55,
+        ],
+        borderColor: "#6366F1",
+        backgroundColor: "#6366F1",
+        pointBackgroundColor: "#6366F1",
+        borderWidth: 2,
+        tension: 0.4,
+      },
+      {
+        label: "Интерес к списанию долгов",
+        data: [
+          60, 65, 70, 75, 77, 79, 76, 74, 72, 70, 68, 65, 63, 60, 58, 55, 53,
+          51, 50,
+        ],
+        borderColor: "#F43F5E",
+        backgroundColor: "#F43F5E",
+        pointBackgroundColor: "#F43F5E",
+        borderWidth: 2,
+        tension: 0.4,
+      },
+      {
+        label: "Интерес к списанию долгов",
+        data: [
+          85, 88, 84, 82, 80, 78, 76, 75, 73, 71, 70, 68, 67, 65, 63, 62, 60,
+          58, 57,
+        ],
+        borderColor: "#10B981",
+        backgroundColor: "#10B981",
+        pointBackgroundColor: "#10B981",
+        borderWidth: 2,
+        tension: 0.4,
+      },
+      {
+        label: "Интерес к списанию долгов",
+        data: [
+          65, 63, 70, 72, 74, 76, 75, 73, 70, 67, 65, 63, 62, 60, 58, 55, 53,
+          51, 50,
+        ],
+        borderColor: "#A78BFA",
+        backgroundColor: "#A78BFA",
+        pointBackgroundColor: "#A78BFA",
+        borderWidth: 2,
+        tension: 0.4,
+      },
+      {
+        label: "Интерес к списанию долгов",
+        data: [
+          90, 92, 88, 86, 85, 87, 89, 90, 91, 92, 90, 88, 86, 85, 83, 82, 80,
+          78, 76,
+        ],
+        borderColor: "#06B6D4",
+        backgroundColor: "#06B6D4",
+        pointBackgroundColor: "#06B6D4",
+        borderWidth: 2,
+        tension: 0.4,
+      },
+    ],
+  };
+  const optionsObjectionsFirstLine = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: true,
+        labels: {
+          color: "#101828",
+          font: {
+            size: 12,
+          },
+        },
+      },
+    },
+    scales: {
+      y: {
+        min: 50,
+        max: 100,
+        ticks: {
+          stepSize: 5,
+          callback: (value) => `${value}%`,
+          color: "#101828",
+        },
+        grid: {
+          color: "#E5E7EB",
+        },
+      },
+      x: {
+        ticks: {
+          color: "#101828",
+        },
+        grid: {
+          display: false,
+        },
+      },
+    },
+  };
+  const dataObjectionsFirstLine = {
+    labels: [
+      "23.10.24",
+      "24.10.24",
+      "25.10.24",
+      "28.10.24",
+      "29.10.24",
+      "30.10.24",
+      "31.10.24",
+      "1.11.24",
+      "4.11.24",
+      "5.11.24",
+      "6.11.24",
+      "7.11.24",
+      "8.11.24",
+      "11.11.24",
+      "12.11.24",
+      "13.11.24",
+      "14.11.24",
+      "15.11.24",
+      "18.11.24",
+    ],
+    datasets: [
+      {
+        label: "Интерес к списанию долгов",
+        data: [
+          70, 75, 80, 85, 90, 87, 83, 78, 85, 82, 80, 77, 75, 72, 70, 68, 66,
+          64, 62,
+        ],
+        borderColor: "#6366F1",
+        backgroundColor: "#6366F1",
+        pointBackgroundColor: "#6366F1",
+        borderWidth: 2,
+        tension: 0.4,
+      },
+      {
+        label: "Интерес к списанию долгов",
+        data: [
+          60, 65, 70, 75, 78, 80, 77, 74, 72, 70, 67, 65, 63, 60, 58, 55, 53,
+          50, 52,
+        ],
+        borderColor: "#F43F5E",
+        backgroundColor: "#F43F5E",
+        pointBackgroundColor: "#F43F5E",
+        borderWidth: 2,
+        tension: 0.4,
+      },
+      {
+        label: "Интерес к списанию долгов",
+        data: [
+          85, 82, 87, 90, 88, 86, 84, 83, 81, 79, 77, 75, 74, 72, 70, 68, 67,
+          65, 63,
+        ],
+        borderColor: "#10B981",
+        backgroundColor: "#10B981",
+        pointBackgroundColor: "#10B981",
+        borderWidth: 2,
+        tension: 0.4,
+      },
+      {
+        label: "Интерес к списанию долгов",
+        data: [
+          65, 63, 70, 72, 74, 76, 75, 73, 70, 67, 65, 63, 62, 60, 58, 55, 53,
+          51, 50,
+        ],
+        borderColor: "#A78BFA",
+        backgroundColor: "#A78BFA",
+        pointBackgroundColor: "#A78BFA",
+        borderWidth: 2,
+        tension: 0.4,
+      },
+      {
+        label: "Интерес к списанию долгов",
+        data: [
+          90, 92, 88, 86, 85, 87, 89, 90, 91, 92, 90, 88, 86, 85, 83, 82, 80,
+          78, 76,
+        ],
+        borderColor: "#06B6D4",
+        backgroundColor: "#06B6D4",
+        pointBackgroundColor: "#06B6D4",
+        borderWidth: 2,
+        tension: 0.4,
+      },
+    ],
+  };
+  const optionsObjectionsSecondLine = optionsObjectionsFirstLine;
   const dataDoughnut = {
     datasets: [
       {
@@ -102,35 +311,6 @@ const DashboardPage = () => {
         borderColor: ["rgba(87, 124, 222, 1)", "rgba(33, 51, 102, 1)"],
       },
     ],
-  };
-  const optionsBar = {
-    indexAxis: "y",
-    scales: {
-      x: {
-        grid: {
-          display: false,
-          drawBorder: false,
-        },
-        ticks: {
-          display: false,
-        },
-      },
-      y: {
-        grid: {
-          display: false,
-          drawBorder: false,
-        },
-        ticks: {
-          color: "black",
-        },
-      },
-    },
-    responsive: true,
-    plugins: {
-      legend: {
-        display: false,
-      },
-    },
   };
   const optionsManagersBar = {
     indexAxis: "y",
@@ -295,8 +475,11 @@ const DashboardPage = () => {
         ],
         backgroundColor: "rgba(93, 224, 218, 1)",
         borderColor: "rgba(93, 224, 218, 1)",
+        pointBackgroundColor: "rgba(93, 224, 218, 1)",
+        pointBorderColor: "#fff",
         borderWidth: 3,
         tension: 0.5,
+        radius: 5,
       },
       {
         label: "Александра Беловская",
@@ -306,8 +489,11 @@ const DashboardPage = () => {
         ],
         backgroundColor: "rgba(149, 255, 149, 1)",
         borderColor: "rgba(149, 255, 149, 1)",
+        pointBackgroundColor: "rgba(149, 255, 149, 1)",
+        pointBorderColor: "#fff",
         borderWidth: 3,
         tension: 0.5,
+        radius: 5,
       },
       {
         label: "Александра Беловская",
@@ -317,8 +503,11 @@ const DashboardPage = () => {
         ],
         backgroundColor: "rgba(149, 178, 255, 1)",
         borderColor: "rgba(149, 178, 255, 1)",
+        pointBackgroundColor: "rgba(149, 178, 255, 1)",
+        pointBorderColor: "#fff",
         borderWidth: 3,
         tension: 0.5,
+        radius: 5,
       },
       {
         label: "Александра Беловская",
@@ -328,8 +517,11 @@ const DashboardPage = () => {
         ],
         backgroundColor: "rgba(209, 149, 255, 1)",
         borderColor: "rgba(209, 149, 255, 1)",
+        pointBackgroundColor: "rgba(209, 149, 255, 1)",
+        pointBorderColor: "#fff",
         borderWidth: 3,
         tension: 0.5,
+        radius: 5,
       },
       {
         label: "Александра Беловская",
@@ -339,8 +531,12 @@ const DashboardPage = () => {
         ],
         backgroundColor: "rgba(255, 211, 149, 1)",
         borderColor: "rgba(255, 211, 149, 1)",
+        backgroundColor: "rgba(255, 211, 149, 1)",
+        pointBackgroundColor: "rgba(255, 211, 149, 1)",
+        pointBorderColor: "#fff",
         borderWidth: 3,
         tension: 0.5,
+        radius: 5,
       },
       {
         label: "Александра Беловская",
@@ -350,11 +546,19 @@ const DashboardPage = () => {
         ],
         backgroundColor: "rgba(255, 149, 150, 1)",
         borderColor: "rgba(255, 149, 150, 1)",
-        borderWidth: 4,
-        tension: 0.4,
+        borderColor: "#6366F1",
+        backgroundColor: "#6366F1",
+        pointBackgroundColor: "#6366F1",
+        pointBorderColor: "#fff",
+        borderWidth: 3,
+        tension: 0.5,
+        radius: 5,
       },
     ],
   };
+  useEffect(() => {
+    setActiveTab(parseInt(tabParam));
+  }, [searchParams]);
   return (
     <div className={styles.dashboard}>
       <FullTransactionModal
@@ -364,22 +568,34 @@ const DashboardPage = () => {
       <h1>Дашборд</h1>
       <ul className={styles.dashboard_tabs}>
         <li className={activeTab === 1 ? styles.active : ""}>
-          <button onClick={() => setActiveTab(1)}>Все</button>
+          <Link onClick={() => setActiveTab(1)} to="/дашборд?tab=1">
+            Все
+          </Link>
         </li>
         <li className={activeTab === 2 ? styles.active : ""}>
-          <button onClick={() => setActiveTab(2)}>Менеджеры</button>
+          <Link onClick={() => setActiveTab(2)} to="/дашборд?tab=2">
+            Менеджеры
+          </Link>
         </li>
         <li className={activeTab === 3 ? styles.active : ""}>
-          <button onClick={() => setActiveTab(3)}>Возражения</button>
+          <Link onClick={() => setActiveTab(3)} to="/дашборд?tab=3">
+            Возражения
+          </Link>
         </li>
         <li className={activeTab === 4 ? styles.active : ""}>
-          <button onClick={() => setActiveTab(4)}>Потребности</button>
+          <Link onClick={() => setActiveTab(4)} to="/дашборд?tab=4">
+            Потребности
+          </Link>
         </li>
         <li className={activeTab === 5 ? styles.active : ""}>
-          <button onClick={() => setActiveTab(5)}>Плюсы</button>
+          <Link onClick={() => setActiveTab(5)} to="/дашборд?tab=5">
+            Плюсы
+          </Link>
         </li>
         <li className={activeTab === 6 ? styles.active : ""}>
-          <button onClick={() => setActiveTab(6)}>Минусы</button>
+          <Link onClick={() => setActiveTab(6)} to="/дашборд?tab=6">
+            Минусы
+          </Link>
         </li>
       </ul>
       <DiapazonComponent />
@@ -431,9 +647,7 @@ const DashboardPage = () => {
                       Колл-центр
                     </span>
                   </div>
-                  <button onClick={() => setIsTransactionModalOpen(true)}>
-                    Подробнее
-                  </button>
+                  <Link to="/эффективность">Подробнее</Link>
                 </div>
               </div>
             </div>
@@ -665,28 +879,494 @@ const DashboardPage = () => {
             activeTab === 3 ? styles.visible : ""
           }`}
         >
-          <h1>Возражения</h1>
+          <div className={styles.content_objections}>
+            <div className={styles.content_objections_tab}>
+              <button>Продажи</button>
+              <button>Колл-центр</button>
+            </div>
+            <h1>Динамика по возражениям</h1>
+            <div className={styles.content_objections_graphs}>
+              <div>
+                <h3>Возражение 1</h3>
+                <Line
+                  options={{
+                    plugins: {
+                      legend: {
+                        display: true,
+                        position: "bottom",
+                        labels: {
+                          usePointStyle: true,
+                          pointStyle: "circle",
+                          boxWidth: 5,
+                          boxHeight: 5,
+                          padding: 5,
+                          font: {
+                            size: 12,
+                            weight: "400",
+                          },
+                          color: "#213366",
+                        },
+                      },
+                    },
+                    scales: {
+                      y: {
+                        grid: {
+                          display: false,
+                        },
+                        min: 50,
+                        max: 100,
+                        ticks: {
+                          callback: function (value) {
+                            return value + "%";
+                          },
+                          font: {
+                            size: 12,
+                            weight: "400",
+                          },
+                          color: "#213366",
+                          padding: 10,
+                        },
+                      },
+                      x: {
+                        grid: {
+                          display: false,
+                        },
+                        ticks: {
+                          font: {
+                            size: 12,
+                            weight: "400",
+                          },
+                          color: "#213366",
+                          padding: 5,
+                        },
+                      },
+                    },
+                  }}
+                  data={dataObjectionsFirstLine}
+                />
+                <button>
+                  Скачать отчет pdf{" "}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="21"
+                    height="20"
+                    viewBox="0 0 21 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M7.16675 10L10.5001 13.3333L13.8334 10"
+                      stroke="#171739"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M10.5001 2.5V13.3333M4.66675 17.5H16.3334"
+                      stroke="#171739"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div>
+                <h3>Возражение 2</h3>
+                <Line
+                  options={{
+                    plugins: {
+                      legend: {
+                        display: true,
+                        position: "bottom",
+                        labels: {
+                          usePointStyle: true,
+                          pointStyle: "circle",
+                          boxWidth: 5,
+                          boxHeight: 5,
+                          padding: 10,
+                          font: {
+                            size: 12,
+                            weight: "400",
+                          },
+                          color: "#213366",
+                        },
+                      },
+                    },
+                    scales: {
+                      y: {
+                        grid: {
+                          display: false,
+                        },
+                        min: 50,
+                        max: 100,
+                        ticks: {
+                          callback: function (value) {
+                            return value + "%";
+                          },
+                          font: {
+                            size: 12,
+                            weight: "400",
+                          },
+                          color: "#213366",
+                          padding: 1,
+                        },
+                      },
+                      x: {
+                        grid: {
+                          display: false,
+                        },
+                        ticks: {
+                          font: {
+                            size: 12,
+                            weight: "400",
+                          },
+                          color: "#213366",
+                          padding: 1,
+                        },
+                      },
+                    },
+                  }}
+                  data={dataObjectionsSecondLine}
+                />
+                <button>
+                  Скачать отчет pdf{" "}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="21"
+                    height="20"
+                    viewBox="0 0 21 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M7.16675 10L10.5001 13.3333L13.8334 10"
+                      stroke="#171739"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M10.5001 2.5V13.3333M4.66675 17.5H16.3334"
+                      stroke="#171739"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
         <div
           className={`${styles.content} ${
             activeTab === 4 ? styles.visible : ""
           }`}
         >
-          <h1>Потребности</h1>
+          <div className={styles.content_objections}>
+            <div className={styles.content_objections_tab}>
+              <button>Продажи</button>
+              <button>Колл-центр</button>
+            </div>
+            <h1>Динамика по возражениям</h1>
+            <div className={styles.content_objections_graphs}>
+              <div>
+                <h3>Возражение 1</h3>
+                <Line
+                  options={{
+                    plugins: {
+                      legend: {
+                        display: true,
+                        position: "bottom",
+                        labels: {
+                          usePointStyle: true,
+                          pointStyle: "circle",
+                          boxWidth: 5,
+                          boxHeight: 5,
+                          padding: 5,
+                          font: {
+                            size: 12,
+                            weight: "400",
+                          },
+                          color: "#213366",
+                        },
+                      },
+                    },
+                    scales: {
+                      y: {
+                        grid: {
+                          display: false,
+                        },
+                        min: 50,
+                        max: 100,
+                        ticks: {
+                          callback: function (value) {
+                            return value + "%";
+                          },
+                          font: {
+                            size: 12,
+                            weight: "400",
+                          },
+                          color: "#213366",
+                          padding: 10,
+                        },
+                      },
+                      x: {
+                        grid: {
+                          display: false,
+                        },
+                        ticks: {
+                          font: {
+                            size: 12,
+                            weight: "400",
+                          },
+                          color: "#213366",
+                          padding: 5,
+                        },
+                      },
+                    },
+                  }}
+                  data={dataObjectionsFirstLine}
+                />
+                <button>
+                  Скачать отчет pdf{" "}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="21"
+                    height="20"
+                    viewBox="0 0 21 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M7.16675 10L10.5001 13.3333L13.8334 10"
+                      stroke="#171739"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M10.5001 2.5V13.3333M4.66675 17.5H16.3334"
+                      stroke="#171739"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
         <div
           className={`${styles.content} ${
             activeTab === 5 ? styles.visible : ""
           }`}
         >
-          <h1>Плюсы</h1>
+          <div className={styles.content_objections}>
+            <div className={styles.content_objections_tab}>
+              <button>Продажи</button>
+              <button>Колл-центр</button>
+            </div>
+            <h1>Динамика по плюсам</h1>
+            <div className={styles.content_objections_graphs}>
+              <select name="" id="">
+                <option value="">Все</option>
+                <option value="">Алёна Дэзик</option>
+                <option value="">Дмитрий Хуков</option>
+                <option value="">Дмитрий Хуков</option>
+                <option value="">Дмитрий Хуков</option>
+              </select>
+              <div>
+                <h3>Плюс</h3>
+                <Line
+                  options={{
+                    plugins: {
+                      legend: {
+                        display: true,
+                        position: "bottom",
+                        labels: {
+                          usePointStyle: true,
+                          pointStyle: "circle",
+                          boxWidth: 5,
+                          boxHeight: 5,
+                          padding: 5,
+                          font: {
+                            size: 12,
+                            weight: "400",
+                          },
+                          color: "#213366",
+                        },
+                      },
+                    },
+                    scales: {
+                      y: {
+                        grid: {
+                          display: false,
+                        },
+                        min: 50,
+                        max: 100,
+                        ticks: {
+                          callback: function (value) {
+                            return value + "%";
+                          },
+                          font: {
+                            size: 12,
+                            weight: "400",
+                          },
+                          color: "#213366",
+                          padding: 10,
+                        },
+                      },
+                      x: {
+                        grid: {
+                          display: false,
+                        },
+                        ticks: {
+                          font: {
+                            size: 12,
+                            weight: "400",
+                          },
+                          color: "#213366",
+                          padding: 5,
+                        },
+                      },
+                    },
+                  }}
+                  data={dataObjectionsFirstLine}
+                />
+                <button>
+                  Скачать отчет pdf{" "}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="21"
+                    height="20"
+                    viewBox="0 0 21 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M7.16675 10L10.5001 13.3333L13.8334 10"
+                      stroke="#171739"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M10.5001 2.5V13.3333M4.66675 17.5H16.3334"
+                      stroke="#171739"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
         <div
           className={`${styles.content} ${
             activeTab === 6 ? styles.visible : ""
           }`}
         >
-          <h1>Минусы</h1>
+          <div className={styles.content_objections}>
+            <div className={styles.content_objections_tab}>
+              <button>Продажи</button>
+              <button>Колл-центр</button>
+            </div>
+            <h1>Динамика минусам</h1>
+            <div className={styles.content_objections_graphs}>
+              <select name="" id="">
+                <option value="">Все</option>
+                <option value="">Алёна Дэзик</option>
+                <option value="">Дмитрий Хуков</option>
+                <option value="">Дмитрий Хуков</option>
+                <option value="">Дмитрий Хуков</option>
+              </select>
+              <div>
+                <h3>Минусы</h3>
+                <Line
+                  options={{
+                    plugins: {
+                      legend: {
+                        display: true,
+                        position: "bottom",
+                        labels: {
+                          usePointStyle: true,
+                          pointStyle: "circle",
+                          boxWidth: 5,
+                          boxHeight: 5,
+                          padding: 5,
+                          font: {
+                            size: 12,
+                            weight: "400",
+                          },
+                          color: "#213366",
+                        },
+                      },
+                    },
+                    scales: {
+                      y: {
+                        grid: {
+                          display: false,
+                        },
+                        min: 50,
+                        max: 100,
+                        ticks: {
+                          callback: function (value) {
+                            return value + "%";
+                          },
+                          font: {
+                            size: 12,
+                            weight: "400",
+                          },
+                          color: "#213366",
+                          padding: 10,
+                        },
+                      },
+                      x: {
+                        grid: {
+                          display: false,
+                        },
+                        ticks: {
+                          font: {
+                            size: 12,
+                            weight: "400",
+                          },
+                          color: "#213366",
+                          padding: 5,
+                        },
+                      },
+                    },
+                  }}
+                  data={dataObjectionsFirstLine}
+                />
+                <button>
+                  Скачать отчет pdf{" "}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="21"
+                    height="20"
+                    viewBox="0 0 21 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M7.16675 10L10.5001 13.3333L13.8334 10"
+                      stroke="#171739"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M10.5001 2.5V13.3333M4.66675 17.5H16.3334"
+                      stroke="#171739"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
