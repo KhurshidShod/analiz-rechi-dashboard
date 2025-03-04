@@ -21,6 +21,7 @@ import FullTransactionModal from "../../components/FullTransactionModal";
 import { Link, useSearchParams } from "react-router-dom";
 import { render } from "sass";
 import DiapazonComponent from "../../components/Diapazon";
+import { toast } from "react-toastify";
 
 ChartJS.register(
   ArcElement,
@@ -944,7 +945,9 @@ const DashboardPage = () => {
                   }}
                   data={dataObjectionsFirstLine}
                 />
-                <button>
+                <button onClick={() => {
+                  toast.success("Документ успешно загружен")
+                }}>
                   Скачать отчет pdf{" "}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1028,7 +1031,9 @@ const DashboardPage = () => {
                   }}
                   data={dataObjectionsSecondLine}
                 />
-                <button>
+                <button onClick={() => {
+                  toast.success("Документ успешно загружен")
+                }}>
                   Скачать отчет pdf{" "}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1127,7 +1132,9 @@ const DashboardPage = () => {
                   }}
                   data={dataObjectionsFirstLine}
                 />
-                <button>
+                <button onClick={() => {
+                  toast.success("Документ успешно загружен")
+                }}>
                   Скачать отчет pdf{" "}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1233,7 +1240,9 @@ const DashboardPage = () => {
                   }}
                   data={dataObjectionsFirstLine}
                 />
-                <button>
+                <button onClick={() => {
+                  toast.success("Документ успешно загружен")
+                }}>
                   Скачать отчет pdf{" "}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1339,7 +1348,9 @@ const DashboardPage = () => {
                   }}
                   data={dataObjectionsFirstLine}
                 />
-                <button>
+                <button onClick={() => {
+                  toast.success("Документ успешно загружен")
+                }}>
                   Скачать отчет pdf{" "}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

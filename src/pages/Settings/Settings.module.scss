@@ -37,15 +37,15 @@
           background: var(--main-white);
           outline: none;
         }
-        img{
-            position: absolute;
-            transform: translate(-50%, -50%);
-            top: 50%;
-            right: 0;
-            z-index: 2;
-            cursor: pointer;
-            background-color: white;
-            width: 20px;
+        img {
+          position: absolute;
+          transform: translate(-50%, -50%);
+          top: 50%;
+          right: 0;
+          z-index: 2;
+          cursor: pointer;
+          background-color: white;
+          width: 20px;
         }
       }
       label {
@@ -61,6 +61,20 @@
         justify-content: start;
         align-items: center;
         gap: 10px;
+      }
+      p {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        color: #cc0a2a;
+        font-family: "SF Pro";
+        font-size: 16px;
+        font-weight: 500;
+        gap: 8px;
+        display: none;
+        &.visible {
+          display: flex;
+        }
       }
     }
     button {
@@ -82,6 +96,41 @@
         background-color: transparent;
         color: var(--text-blue);
         border: 1px solid var(--text-blue);
+      }
+    }
+    .success_bottom {
+      width: 100%;
+      margin-top: 20px;
+      padding: 5px 16px;
+      color: #0fae00;
+      font-family: "SF Pro";
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0.3px;
+      border-radius: 5px;
+      background: #d6fcd3;
+      display: none;
+      &.visible {
+        display: block;
+      }
+    }
+    .unsuccess_bottom,
+    .pass_notdemand {
+      width: 100%;
+      margin-top: 20px;
+      padding: 5px 16px;
+      color: #cc0a2a;
+      font-family: "SF Pro";
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0.3px;
+      border-radius: 5px;
+      background: #ffe8eb;
+      display: none;
+      &.visible {
+        display: block;
       }
     }
   }

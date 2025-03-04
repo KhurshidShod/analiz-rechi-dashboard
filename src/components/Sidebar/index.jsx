@@ -174,11 +174,13 @@ const Sidebar = ({ collapsed }) => {
             <div>Pro</div>
           </Link>
         </li>
-        <li onClick={(e) => slideFunction(e)}>
-          <span>
-            <img src={LogoutLogo} alt="" />
-          </span>
-          <p>Выйти</p>
+        <li>
+          <div>
+            <span>
+              <img src={LogoutLogo} alt="" />
+            </span>
+            <p>Выйти</p>
+          </div>
         </li>
       </ul>
     </div>
