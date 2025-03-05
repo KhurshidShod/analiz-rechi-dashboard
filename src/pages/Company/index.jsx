@@ -65,11 +65,6 @@ const CompanyPage = () => {
       what: ["Установление контакта", "Доброе утро", "Приветствую"],
     },
   ]);
-  const updateRule = (id, key, value) => {
-    setRules(
-      rules.map((rule) => (rule.id === id ? { ...rule, [key]: value } : rule))
-    );
-  };
 
   const handleChange = () => {};
 

@@ -38,7 +38,6 @@ const AddEmployeeModal = ({
             e.preventDefault();
             setIsAddEmployeeModalOpen(false);
             toast.success("Настройки обновлены");
-            toast.error("Ошибка: сотрудник с таким именем уже существует");
           }}
         >
           <div>

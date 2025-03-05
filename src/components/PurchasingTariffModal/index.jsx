@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 import styles from "./PurchasingTariffModal.module.scss";
 import CloseIcon from "@assets/icons/closetab.svg";
 
-const PurchasingTariffModal = ({ isOpened, setModalOpen }) => {
+const PurchasingTariffModal = ({ isOpened, setModalOpen, toggleModals }) => {
   return (
     <div
       className={`${styles.purchasing_modal} ${isOpened ? styles.opened : ""}`}
@@ -22,7 +22,7 @@ const PurchasingTariffModal = ({ isOpened, setModalOpen }) => {
         >
           Оплата картой
         </button>
-        <button>Оплата по счету</button>
+        <button onClick={() => toggleModals(false)}>Оплата по счету</button>
       </div>
     </div>
   );

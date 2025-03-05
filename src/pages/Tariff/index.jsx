@@ -3,6 +3,7 @@ import styles from "./Tariff.module.scss";
 import { Table } from "antd";
 import PurchasingTariffModal from "../../components/PurchasingTariffModal";
 import DiapazonComponent from "../../components/Diapazon";
+import PaymentInvoiceModal from "../../components/PaymentInvoiceModal";
 
 const columns = [
   {
@@ -35,12 +36,21 @@ const dataSource = Array.from({
 const TariffPage = () => {
   const [activeTab, setActiveTab] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [isInvoiceOpen, setIsInvoiceOpen] = useState(false);
+  const toggleOpenedModals = (state) => {
+    setIsModalOpen(state);
+    setIsInvoiceOpen(true);
+  };
   return (
     <div className={styles.tariff}>
+      <PaymentInvoiceModal
+        isOpen={isInvoiceOpen}
+        setIsOpen={setIsInvoiceOpen}
+      />
       <PurchasingTariffModal
         isOpened={isModalOpen}
         setModalOpen={setIsModalOpen}
+        toggleModals={toggleOpenedModals}
       />
       <ul className={styles.tariff_tabs}>
         <li className={activeTab === 1 ? styles.active : ""}>
@@ -372,7 +382,12 @@ const TariffPage = () => {
             activeTab === 3 ? styles.visible : ""
           }`}
         >
-          <Table scroll={{x: true}} columns={columns} bordered={true} dataSource={dataSource} />
+          <Table
+            scroll={{ x: true }}
+            columns={columns}
+            bordered={true}
+            dataSource={dataSource}
+          />
         </div>
       </div>
     </div>
