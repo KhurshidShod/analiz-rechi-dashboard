@@ -72,6 +72,10 @@
         flex-wrap: wrap;
         gap: 22px;
         margin-top: 30px;
+        @media (max-width: 700px) {
+          flex-direction: column;
+          width: 100%;
+        }
         div {
           width: calc(100% / 2 - 22px);
           display: flex;
@@ -79,6 +83,9 @@
           align-items: start;
           flex-direction: column;
           gap: 10px;
+          @media (max-width: 650px) {
+            width: 100%;
+          }
           label {
             color: #1c2046;
             font-family: "SF Pro";
