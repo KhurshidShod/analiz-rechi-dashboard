@@ -203,6 +203,7 @@ const SalesPage = () => {
           pagination={{ pageSize: 4 }}
           columns={columnsTable}
           dataSource={dataTable}
+          scroll={{ x: 1300 }}
         />
       </div>
     </div>

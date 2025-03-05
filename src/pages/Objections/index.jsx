@@ -57,10 +57,8 @@ const ObjectionsPage = () => {
   return (
     <div className={styles.objections}>
       <div
-        style={{
-          width: isRightWindowOpen ? "45%" : "100%",
-        }}
-        className={styles.objections_left}
+        
+        className={`${styles.objections_left} ${isRightWindowOpen ? styles.toggled : ""}`}
       >
         <h1>Возражения</h1>
         <div className={styles.objections_left_tabs}>
@@ -124,7 +122,7 @@ const ObjectionsPage = () => {
         style={{
           display: isRightWindowOpen ? "block" : "none",
         }}
-        className={styles.objections_right}
+        className={`${styles.objections_right} ${isRightWindowOpen ? styles.toggled : ""}`}
       >
         <h1>Финансовая нагрузка и обязательства</h1>
         <div className={styles.objections_right_group}>

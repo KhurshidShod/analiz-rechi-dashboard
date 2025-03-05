@@ -8,6 +8,10 @@
   align-items: start;
   flex-direction: row;
   gap: 3rem;
+  @media (max-width: 800px) {
+    flex-direction: column;
+    max-height: none;
+  }
   &_left {
     display: flex;
     justify-content: start;
@@ -16,6 +20,14 @@
     flex-grow: 1;
     max-height: 100vh;
     overflow: auto;
+    &.toggled{
+      width: 45%;
+      @media (max-width: 800px) {
+        width: 100%;
+        max-height: none;
+        overflow: visible;
+      }
+    }
     h1 {
       color: #fff;
       font-family: "SF Pro";
@@ -154,6 +166,15 @@
     width: 55%;
     max-height: 100vh;
     overflow: auto;
+    display: none;
+    &.toggled{
+      display: block;
+      @media (max-width: 800px) {
+        width: 100%;
+        max-height: none;
+        overflow: visible;
+      }
+    }
     h1 {
       color: #171739;
       font-family: "SF Pro";
