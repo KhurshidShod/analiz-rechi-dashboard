@@ -87,3 +87,6 @@ border-start-end-radius: 0 !important;
   border: 1px solid var(--border-color) !important;
   padding: 3px 10px !important;
 }
+.ant-upload-wrapper, .ant-upload{
+  width: 100% !important;
+}

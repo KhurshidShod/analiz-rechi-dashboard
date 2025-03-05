@@ -100,7 +100,7 @@ const Sidebar = ({ collapsed }) => {
             </span>
             <p>Продажи</p>
           </Link>
-          <Link to="/колл-центр" className={styles.inner_link}>
+          <Link className={styles.inner_link}>
             <span>
               <img src={CallCenterIcon} alt="" />
             </span>

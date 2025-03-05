@@ -30,6 +30,12 @@ const App = () => {
     <>
       <Router>
         <Routes>
+          <Route path="/" element={<Layout noPadding={true} />}>
+            <Route path="возражения" element={<ObjectionsPage />} />
+            <Route path="потребности" element={<NeedsPage />} />
+            <Route path="плюсы" element={<ProfitsPage />} />
+            <Route path="минусы" element={<LossesPage />} />
+          </Route>
           <Route path="/" element={<Layout />}>
             <Route index element={<Navigate to="дашборд?tab=1" replace />} />
             <Route path="дашборд" action element={<DashboardPage />} />
@@ -39,10 +45,6 @@ const App = () => {
             <Route path="тариф" element={<TariffPage />} />
             <Route path="интеграции" element={<IntegrationPage />} />
             <Route path="продажи" element={<SalesPage />} />
-            <Route path="возражения" element={<ObjectionsPage />} />
-            <Route path="потребности" element={<NeedsPage />} />
-            <Route path="плюсы" element={<ProfitsPage />} />
-            <Route path="минусы" element={<LossesPage />} />
             <Route
               path="эффективность"
               element={<EffectivityBySectionsPage />}

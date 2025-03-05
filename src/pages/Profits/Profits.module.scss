@@ -1,0 +1,80 @@
+.profits {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--main-blue);
+    padding: 20px 30px;
+    h1 {
+      color: #fff;
+      font-family: "SF Pro";
+      font-size: 40px;
+      font-weight: 500;
+    }
+    &_tabs {
+      width: 100%;
+      display: flex;
+      justify-content: start;
+      align-items: start;
+      gap: 8px;
+      margin-top: 24px;
+      margin-bottom: 24px;
+      button {
+        padding: 10px 24px;
+        border-radius: 6px;
+        font-family: "SF Pro";
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        border: none;
+        cursor: pointer;
+        &:first-child {
+          color: var(--main-blue);
+          background-color: var(--main-white);
+        }
+        &:last-child {
+          color: var(--main-white);
+          background-color: transparent;
+          border: 1px solid #c4c4d1;
+        }
+      }
+    }
+    &_search {
+      position: relative;
+      width: 45%;
+      margin-top: 24px;
+      height: 40px;
+      svg {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(-50%, -50%);
+      }
+      input {
+        width: 100%;
+        height: 100%;
+        padding: 8px 16px;
+        font-family: "SF Pro";
+        font-size: 14px;
+        font-weight: 400;
+        background-color: transparent;
+        border: 1px solid var(--main-white);
+        border-radius: 4px;
+        border: 1px solid #c4c4d1;
+        outline: none;
+        color: var(--main-white);
+        &::placeholder {
+          color: #c4c4d1;
+        }
+      }
+    }
+    &_nodata {
+      color: #a6a6a6;
+      font-family: "SF Pro";
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 140%;
+      max-width: 640px;
+      margin-top: 40px;
+    }
+  }
+  

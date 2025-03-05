@@ -7,6 +7,10 @@ import PlayIcon from "@assets/icons/play_icon.svg";
 const FullTransactionModal = ({
   isTransactionModalOpen,
   setIsTransactionModalOpen,
+  noCheckList = false,
+  noChat = false,
+  noAudio = false,
+  noInfos = false,
 }) => {
   const [currentTime, setCurrentTime] = useState("0:00");
   const [totalTime, setTotalTime] = useState("0:00");
@@ -96,8 +100,8 @@ const FullTransactionModal = ({
           </svg>
           <h2>Продажа недвижимости в Дубае</h2>
         </div>
-        <div className={styles.transaction_modal_body}>
-          <div className={styles.transaction_modal_body_infos}>
+        <div className={`${styles.transaction_modal_body} ${noAudio ? styles.disabled : ""}`}>
+          <div className={`${styles.transaction_modal_body_infos} ${noInfos ? styles.disabled : ""}`}>
             <p>Дата: 2024-11-04 19:50</p>
             <p>Александра Беловская</p>
             <p>Сделка: Нет</p>
@@ -123,8 +127,14 @@ const FullTransactionModal = ({
             </div>
           </div>
         </div>
-        <hr />
-        <div className={styles.transaction_modal_conversation}>
+        <hr style={{
+          display: noAudio ? "none" : "block",
+        }} />
+        <div
+          className={`${styles.transaction_modal_conversation} ${
+            noChat ? styles.disabled : ""
+          }`}
+        >
           <h3>Расшифровка разговора</h3>
           <div className={styles.chat}>
             <div className={`${styles.chat_message} ${styles.manager}`}>
@@ -208,7 +218,11 @@ const FullTransactionModal = ({
             </div>
           </div>
         </div>
-        <div className={styles.transaction_modal_checkList}>
+        <div
+          className={`${styles.transaction_modal_checkList} ${
+            noCheckList ? styles.disabled : ""
+          }`}
+        >
           <div className={styles.transaction_modal_checkList_top}>
             <div>
               <h3>Чек - лист</h3>

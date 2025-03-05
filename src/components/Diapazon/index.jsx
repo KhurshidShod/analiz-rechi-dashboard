@@ -5,17 +5,33 @@ import dayjs from "dayjs";
 const { RangePicker } = DatePicker;
 const dateFormat = "YYYY-MM-DD";
 
-const DiapazonComponent = ({ hasBackground = true, defaultStyle = {} }) => {
+const DiapazonComponent = ({
+  hasBackground = true,
+  defaultStyle = {},
+  onReports = false,
+}) => {
   return (
     <div
       style={{
         backgroundColor: hasBackground ? "#fff" : "transparent",
         border: hasBackground ? "1px solid #E0E0F4" : "none",
-        padding: defaultStyle === "noPadding" ? "0px 20px" : "18px 20px"
+        padding:
+          defaultStyle === "noPadding"
+            ? "0px 20px"
+            : onReports
+            ? "0"
+            : "18px 20px",
       }}
       className={styles.timeframe}
     >
-      <p>Диапазон</p>
+      <p
+        style={{
+          color: onReports && "#fff",
+          width: onReports && "100%",
+        }}
+      >
+        Диапазон
+      </p>
       <RangePicker
         defaultValue={[
           dayjs("2025-02-06", dateFormat),
@@ -26,13 +42,50 @@ const DiapazonComponent = ({ hasBackground = true, defaultStyle = {} }) => {
           fontSize: "18px",
           fontWeight: "500",
           color: "#213366",
+          backgroundColor: onReports && "transparent",
+          color: onReports && "#fff",
         }}
       />
-      <button>Сегодня</button>
-      <button>Вчера</button>
-      <button>Неделя</button>
-      <button>Месяц</button>
-      <button>Весь период</button>
+      <button
+        style={{
+          backgroundColor: onReports && "transparent",
+          color: onReports && "#fff",
+        }}
+      >
+        Сегодня
+      </button>
+      <button
+        style={{
+          backgroundColor: onReports && "transparent",
+          color: onReports && "#fff",
+        }}
+      >
+        Вчера
+      </button>
+      <button
+        style={{
+          backgroundColor: onReports && "transparent",
+          color: onReports && "#fff",
+        }}
+      >
+        Неделя
+      </button>
+      <button
+        style={{
+          backgroundColor: onReports && "transparent",
+          color: onReports && "#fff",
+        }}
+      >
+        Месяц
+      </button>
+      <button
+        style={{
+          backgroundColor: onReports && "transparent",
+          color: onReports && "#fff",
+        }}
+      >
+        Весь период
+      </button>
     </div>
   );
 };

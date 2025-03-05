@@ -2,8 +2,18 @@ import styles from "./Sales.module.scss";
 import DiapazonComponent from "../../components/Diapazon";
 import { Select, Table, Tooltip } from "antd";
 import { render } from "sass";
+import UploadRecordModal from "../../components/UploadRecordModal";
+import { useState } from "react";
+import ExportRecordModal from "../../components/ExportRecordModal";
+import FullTransactionModal from "../../components/FullTransactionModal";
 
 const SalesPage = () => {
+  const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
+  const [isExportModalOpen, setIsExportModalOpen] = useState(false);
+  const [isFirstFullTransactionModalOpen, setFirstIsFullTransactionModalOpen] =
+    useState(false);
+  const [isSecondFullTransactionModalOpen, setSecondIsFullTransactionModalOpen] =
+    useState(false);
   const dicOptions = [
     {
       value: 1,
@@ -42,14 +52,20 @@ const SalesPage = () => {
     {
       title: "Расшифровка разговора/ аудио",
       dataIndex: "audioscript",
-      render: (text) => <button>{text}</button>,
+      render: (text) => (
+        <button onClick={() => setFirstIsFullTransactionModalOpen(true)}>
+          {text}
+        </button>
+      ),
     },
     {
       title: "Теги фрагментов",
       dataIndex: "tags",
       render: (tags) => (
         <ul className={styles.table_tag}>
-          {tags.map((tag, index) => <li>{tag}</li>)}
+          {tags.map((tag, index) => (
+            <li>{tag}</li>
+          ))}
         </ul>
       ),
     },
@@ -63,7 +79,7 @@ const SalesPage = () => {
       render: (text) => (
         <div>
           <span>{text[0]}%</span>
-          <button>{text[1]}</button>
+          <button onClick={() => setSecondIsFullTransactionModalOpen(true)}>{text[1]}</button>
         </div>
       ),
     },
@@ -90,10 +106,30 @@ const SalesPage = () => {
   }));
   return (
     <div className={styles.sales}>
+      <FullTransactionModal
+        noCheckList={true}
+        noInfos={true}
+        isTransactionModalOpen={isFirstFullTransactionModalOpen}
+        setIsTransactionModalOpen={setFirstIsFullTransactionModalOpen}
+      />
+      <FullTransactionModal
+        noChat={true}
+        noAudio={true}
+        isTransactionModalOpen={isSecondFullTransactionModalOpen}
+        setIsTransactionModalOpen={setSecondIsFullTransactionModalOpen}
+      />
+      <UploadRecordModal
+        isOpen={isUploadModalOpen}
+        setIsOpen={setIsUploadModalOpen}
+      />
+      <ExportRecordModal
+        isOpen={isExportModalOpen}
+        setIsOpen={setIsExportModalOpen}
+      />
       <h1>Записи</h1>
       <div className={styles.sales_header}>
         <div className={styles.sales_header_actions}>
-          <button>
+          <button onClick={() => setIsUploadModalOpen(true)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -118,7 +154,7 @@ const SalesPage = () => {
             </svg>
             Загрузить
           </button>
-          <button>Экспорт</button>
+          <button onClick={() => setIsExportModalOpen(true)}>Экспорт</button>
         </div>
         <DiapazonComponent defaultStyle="noPadding" hasBackground={false} />
       </div>
