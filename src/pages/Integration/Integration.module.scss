@@ -84,6 +84,9 @@
         align-items: center;
         flex-direction: column;
         gap: 10px;
+        @media (max-width: 566px) {
+          flex-grow: 1;
+        }
         div {
           display: flex;
           justify-content: center;
