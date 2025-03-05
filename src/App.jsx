@@ -14,7 +14,6 @@ import IntegrationPage from "./pages/Integration";
 import CompanyPage from "./pages/Company";
 import SettingsPage from "./pages/Settings";
 import TariffPage from "./pages/Tariff";
-import CallCenterPage from "./pages/CallCenter";
 import LossesPage from "./pages/Losses";
 import ProfitsPage from "./pages/Profits";
 import NeedsPage from "./pages/Needs";
@@ -40,7 +39,6 @@ const App = () => {
             <Route path="тариф" element={<TariffPage />} />
             <Route path="интеграции" element={<IntegrationPage />} />
             <Route path="продажи" element={<SalesPage />} />
-            <Route path="колл-центр" element={<CallCenterPage />} />
             <Route path="возражения" element={<ObjectionsPage />} />
             <Route path="потребности" element={<NeedsPage />} />
             <Route path="плюсы" element={<ProfitsPage />} />

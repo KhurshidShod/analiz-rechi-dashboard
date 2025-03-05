@@ -40,6 +40,7 @@ const DashboardPage = () => {
   const [isTransactionModalOpen, setIsTransactionModalOpen] = useState(false);
   const [searchParams] = useSearchParams();
   const tabParam = searchParams.get("tab");
+  
   const columnsManagersSection = [
     {
       title: "ФИО",
